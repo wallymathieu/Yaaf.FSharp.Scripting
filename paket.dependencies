@@ -1,10 +1,11 @@
 redirects on
 source https://nuget.org/api/v2
 
+nuget FAKE ~> 5 prerelease
 nuget FSharp.Compiler.Service
-nuget NUnit
-nuget NUnit.Runners
+nuget NUnit ~> 3
 nuget NuGet.CommandLine
 nuget Unquote
 nuget FSharp.Core
-nuget Yaaf.AdvancedBuilding == 0.14.1
+nuget Microsoft.NET.Test.Sdk
+nuget NUnit3TestAdapter

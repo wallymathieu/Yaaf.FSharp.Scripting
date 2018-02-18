@@ -24,7 +24,7 @@ open System.Diagnostics
 module Log =
   let source = new TraceSource("Yaaf.FSharp.Scripting")
 
-#if !NETSTANDARD1_5
+#if !NETSTANDARD1_5 && !NETSTANDARD2_0
   let LogConsole levels =
     let consoleListener = new ConsoleTraceListener();
     consoleListener.TraceOutputOptions <- TraceOptions.DateTime
@@ -795,7 +795,9 @@ module internal Extensions =
       // Try to get the AssemblyBuilder
       member x.DynamicAssemblyBuilder =
         match x.DynamicAssembly with
+#if !NETSTANDARD2_0 && !NETSTANDARD1_5
         | :? System.Reflection.Emit.AssemblyBuilder as builder -> builder
+#endif
         | _ -> failwith "The DynamicAssembly property is no AssemblyBuilder!"
 
 #if YAAF_FSHARP_SCRIPTING_PUBLIC

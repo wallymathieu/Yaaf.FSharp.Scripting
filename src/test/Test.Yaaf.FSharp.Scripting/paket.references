@@ -1,5 +1,6 @@
 NUnit
-NUnit.Runners
+Microsoft.NET.Test.Sdk
+NUnit3TestAdapter
 Unquote
 FSharp.Compiler.Service
 FSharp.Core
